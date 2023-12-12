@@ -11,12 +11,3 @@ let rec binary_search (haystack: 'T array) needle high low =
     else
         None
         
-[<EntryPoint>]
-let main arg =
-    let haystack = [| 3; 5; 10; 15; 16; 17; 19; 33; 34; 35 |]
-    let needle = 34
-
-    match binary_search haystack needle haystack.Length 0 with 
-    | Some(result) -> printfn "Needle found at: %d" result
-    | None -> printfn "Needle Not Found"
-    0
