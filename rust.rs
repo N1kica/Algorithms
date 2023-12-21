@@ -8,6 +8,19 @@ fn evaluate(c: &char) -> i32 {
 }
 
 fn main() {
+    let numbers = vec![2, 3, 4, 5, 6, 2, 4];
+    let mut sum = 0;
+
+    let index = numbers.iter().enumerate().position(|(i, &num)| {
+        sum += num;
+        sum >= 10
+    });
+
+    match index {
+        Some(idx) => println!("Index where sum reaches 10: {}", idx),
+        None => println!("Sum doesn't reach 10 with given numbers"),
+    }
+    
     let file = fs::read_to_string("input.txt").expect("Something went wrong reading the file");
 
     let result: i32 = file.chars().fold(0, |acc, c| {
